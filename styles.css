@@ -1,0 +1,67 @@
+/* Ensure the body and html take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f4f4f4; /* Adjust the background color as needed */
+}
+
+.content-container {
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #bdc30b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the container scales based on screen size */
+    max-width: 1200px; /* Limits the maximum width */
+}
+
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: auto auto; /* Two rows: first for videos, second for audio */
+    gap: 20px;
+}
+
+.media-cell {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.video-cell {
+    grid-row: 1; /* Place videos in the first row */
+}
+
+.audio-cell {
+    grid-row: 2; /* Place audio in the second row */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+video, audio {
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+}
+
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: 1fr; /* 1 column on smaller screens */
+        grid-template-rows: repeat(4, auto); /* 4 rows */
+    }
+    
+    .media-cell {
+        margin-bottom: 20px;
+    }
+}
